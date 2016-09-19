@@ -29,21 +29,6 @@ Bundle 'tomasr/molokai'
 let g:molokai_original = 1
 let g:rehash256 = 1
 
-"主题 solarized
-Bundle 'altercation/vim-colors-solarized'
-let g:solarized_termcolors=256
-let g:solarized_termtrans=1
-let g:solarized_contrast="normal"
-let g:solarized_visibility="normal"
-
-"NERD-Tree 建议记住该插件的快捷键
-Bundle 'vim-scripts/The-NERD-tree'
-map <leader>n :NERDTreeToggle<CR>
-let NERDTreeHighlightCursorline=1
-let NERDTreeIgnore=[ '\.pyc$', '\.pyo$', '\.py\$class$', '\.obj$', '\.o$', '\.so$', '\.egg$', '^\.git$' ]
-let g:netrw_home='~/bak'
-"close vim if the only window left open is a NERDTree
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 
 "标签导航
 Bundle 'majutsushi/tagbar'
@@ -149,49 +134,6 @@ Plugin 'rhysd/accelerated-jk'
 "shift+v+方向键选中(默认当前行) -> ,cs 加上注释 -> ,cu 解开注释
 Bundle 'scrooloose/nerdcommenter'
 
-"状态栏增强展示
-Bundle 'bling/vim-airline'
-" --- vim-airline
-set ttimeoutlen=50
-let g:airline_left_sep = ''
-let g:airline_left_sep = ''
-let g:airline_right_sep = ''
-let g:airline_right_sep = ''
-let g:airline_linecolumn_prefix = ''
-let g:airline_linecolumn_prefix = ''
-let g:airline_linecolumn_prefix = ''
-let g:airline#extensions#whitespace#enabled = 0
-let g:airline#extensions#branch#enabled = 1
-let g:airline#extensions#syntastic#enabled = 0
-let g:airline#extensions#tagbar#enabled = 1
-let g:airline#extensions#csv#enabled = 0
-let g:airline#extensions#hunks#enabled = 0
-let g:airline#extensions#virtualenv#enabled = 1
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#left_sep = ' '
-let g:airline#extensions#tabline#left_alt_sep = '|'
-let g:airline_theme_patch_func = 'AirlineThemePatch'
-
-function! AirlineInit()
-    let g:airline_section_y = airline#section#create_right(['%v', '%l'])
-    let g:airline_section_z = airline#section#create_right(['%P', '%L'])
-endfunction
-autocmd VimEnter * call AirlineInit()
-
-function! AirlineThemePatch(palette)
-    if g:airline_theme == "wombat"
-        for colors in values(a:palette.inactive)
-            let colors[3] = 235
-        endfor
-    endif
-endfunction
-
-
-"for show no user whitespaces
-Bundle 'bronson/vim-trailing-whitespace'
-map <leader><space> :FixWhitespace<cr>
-
-
 "##########语法检查##########"
 "Bundle 'scrooloose/syntastic'
 let g:syntastic_error_symbol='>>'
@@ -202,14 +144,6 @@ let g:syntastic_mode_map      = {'mode': 'active',
             \'active_filetypes':  [],
             \'passive_filetypes': ['html', 'css', 'xhtml', 'eruby']
             \}
-
-
-" Airline output for tmux
-Bundle 'edkolev/tmuxline.vim'
-let g:airline#extensions#tabline#enabled = 1
-let g:airline_powerline_fonts=0
-let g:tmuxline_powerline_separators = 0
-let g:tmuxline_preset = 'full'
 
 "括号显示增强
 Bundle 'kien/rainbow_parentheses.vim'
@@ -234,40 +168,6 @@ let g:rbpt_colorpairs = [
 let g:rbpt_max = 40
 let g:rbpt_loadcmd_toggle = 0
 
-"cmake.vim
-Bundle 'vhdirk/vim-cmake'
-
-"scons vim
-Bundle 'scons.vim'
-
-"gdb
-"Bundle 'yuratomo/dbg.vim'
-"let g:dbg#command_shell = 'bash'
-"let g:dbg#shell_prompt = '> '
-"let g:dbg#command_jdb = 'jdb'
-"let g:dbg#command_gdb = 'gdb'
-"Bundle 'multvals.vim'
-"Bundle 'gdbvim'
-"let g:vimgdb_debug_file = ""
-"run macros/gdb_mappings.vim
-
-Bundle 'Conque-GDB'
-let g:ConqueGdb_Leader = ',g'
-let g:ConqueGdb_SrcSplit = 'right'
-let g:ConqueGdb_GdbExe = 'gdb' "or arm-linux-gdb
-"let g:ConqueGdb_GdbExe = 'arm-none-eabi-gdb' "or gdb
-"Bundle 'minimal_gdb'
-"Bundle 'gdbmgr'
-"Bundle 'Shougo/vimproc'
-" Brief help
-" :BundleList - list configured bundles
-" :BundleInstall(!) - install(update) bundles
-" :BundleSearch(!) foo - search(or refresh cache first) for foo
-" :BundleClean(!) - confirm(or auto-approve) removal of unused bundles
-"
-" see :h vundle for more details or wiki for FAQ
-" NOTE: comments after Bundle command are not allowed..
-
 Bundle 'DrawIt'
 
 "markdown
@@ -279,15 +179,6 @@ Bundle 'uarun/vim-protobuf'
 
 "XML语法支持
 Bundle 'othree/xml.vim'
-
-"QT支持
-Bundle 'Townk/vim-qt'
-Bundle  'xaizek/vim-qthelp'
-Bundle 'peterhoeg/vim-qml'
-
-"bitbake 的支持
-Bundle 'kergoth/vim-bitbake'
-
 
 if iCanHazVundle == 0
   echo "Installing Bundles, please ignore key map error messages"

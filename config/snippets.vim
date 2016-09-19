@@ -13,11 +13,6 @@ set t_Co=256
 "set background=dark
 "set t_Co=256
 
-" 定义自动命令，如果每次vim打开时没有指定打开文件，则启用NERDTree
- autocmd vimenter * if !argc() | NERDTree | endif
-" autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
-
-
 "设置标记一列的背景颜色和数字一行颜色一致
 hi! link SignColumn LineNr
 hi! link ShowMarksHLl DiffAdd
