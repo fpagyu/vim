@@ -69,3 +69,4 @@ set expandtab
 
 set cino=:0g0t0(sus
 
+let loaded_matchparen = 1
